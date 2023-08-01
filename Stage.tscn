@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=4 format=3 uid="uid://b6nnl45g3b8mh"]
+
+[ext_resource type="PackedScene" uid="uid://n2y7nkl68lnt" path="res://Player1.tscn" id="1_huir4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
+size = Vector2(1294.5, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnub7"]
+size = Vector2(20, 663)
 
 [node name="Stage" type="Node2D"]
+
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="Body"]
+position = Vector2(626, 652)
+shape = SubResource("RectangleShape2D_0f4u3")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Body"]
+position = Vector2(566, -4)
+shape = SubResource("RectangleShape2D_0f4u3")
+
+[node name="Rwall" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 321.5)
+shape = SubResource("RectangleShape2D_nnub7")
+
+[node name="Lwall" type="CollisionShape2D" parent="Body"]
+position = Vector2(1162, 327)
+shape = SubResource("RectangleShape2D_nnub7")
+
+[node name="Player1" parent="." instance=ExtResource("1_huir4")]
+position = Vector2(285, 309)
