@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://tsghb2e315yl"]
+
+[ext_resource type="Script" path="res://Player2.gd" id="1_lr1qf"]
+[ext_resource type="Texture2D" uid="uid://c0bht8o7elpqv" path="res://Assets/Vase2.png" id="2_grmqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8un2"]
+size = Vector2(21.5, 36.6667)
+
+[node name="PLayer2" type="CharacterBody2D"]
+scale = Vector2(-1, 1)
+script = ExtResource("1_lr1qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_grmqw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 5.5)
+scale = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_s8un2")
