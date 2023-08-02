@@ -61,7 +61,7 @@ func _physics_process(delta):
 		if  Input.is_action_just_pressed("P2Throw") and isgrabbed == true:
 			var ragdoll = p_1_ragdoll.instantiate() as RigidBody2D
 			ragdoll.position = self.global_position + Vector2(0,-150) 
-			ragdoll.linear_velocity =  Vector2(700 * -direction,-500) 
+			ragdoll.linear_velocity =  Vector2(700 * direction,-500) 
 			ragdoll.angular_velocity =  3
 			remove_child(spawn)
 			add_sibling(ragdoll)

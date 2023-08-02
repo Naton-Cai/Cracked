@@ -11,7 +11,7 @@ func _ready() -> void:
 	self.area_entered.connect(self._on_area_entered)
 
 func _on_area_entered(hurtbox: hurtbox) -> void:
-	#print("HIT")
+	print("HIT")
 	if hurtbox == null:
 		return
 	if get_parent().has_method("spawn_grabbed") and hurtbox.get_parent().grab_animation == false:

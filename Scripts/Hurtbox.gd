@@ -9,7 +9,7 @@ func _ready() -> void:
 	self.area_entered.connect(self._on_area_entered)
 
 func _on_area_entered(hitbox: hitbox) -> void:
-	#print("HURT")
+	print("HURT")
 	if hitbox == null:
 		return
 	if get_parent().grab_animation == false:
