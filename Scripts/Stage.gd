@@ -10,7 +10,7 @@ func _ready():
 	spawnP2(Vector2(1460, 50))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 	
 func P1Damage(damage):
