@@ -25,6 +25,8 @@ func _physics_process(delta):
 		if grab_animation == false:
 			velocity.x = 0
 	
+	#we don't want the player to move during the grab animation 
+	#so the script only reads inputs when not doing the grab animation
 	if grab_animation == false:
 		if Input.is_action_pressed("P2L"):
 			velocity.x = -move_speed
@@ -51,9 +53,11 @@ func _physics_process(delta):
 			fast_fall = true
 			velocity.y = fall_force
 		
+		#plays the grab animation
 		if Input.is_action_just_pressed("P2Grab") and isgrabbed == false:
 			$AnimationPlayer.play("Grab")
 		
+		#throws a newly spawned ragdoll
 		if  Input.is_action_just_pressed("P2Throw") and isgrabbed == true:
 			var ragdoll = p_1_ragdoll.instantiate() as RigidBody2D
 			ragdoll.position = self.global_position + Vector2(0,-150) 
@@ -65,7 +69,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
+#spawns grabbed sprite of opposing player
 func spawn_grabbed():
 	spawn.position = Vector2(0,-50)  
 	add_child(spawn)
