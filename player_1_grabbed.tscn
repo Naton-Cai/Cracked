@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc48uwhtph20j"]
+
+[ext_resource type="Texture2D" uid="uid://cnd8bd5o0jp0w" path="res://Assets/Vase1.png" id="1_tk2bh"]
+
+[node name="Player_1_Grabbed" type="Sprite2D"]
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_tk2bh")

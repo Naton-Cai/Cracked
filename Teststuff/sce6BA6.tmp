@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfyvunqsxqh21"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_iwgmh"]
+[ext_resource type="PackedScene" uid="uid://c8lsfc3e0elef" path="res://player_2.tscn" id="2_aljrk"]
+[ext_resource type="PackedScene" uid="uid://h5jy3l7st2nv" path="res://player_1.tscn" id="3_uxee8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1ui5"]
+size = Vector2(1189, 35)
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_iwgmh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-142, 504)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(707.5, 109.5)
+shape = SubResource("RectangleShape2D_l1ui5")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 112.0
+offset_top = 92.0
+offset_right = 1303.0
+offset_bottom = 130.0
+
+[node name="Player 1" parent="." instance=ExtResource("3_uxee8")]
+position = Vector2(125, 355)
+
+[node name="Player 2" parent="." instance=ExtResource("2_aljrk")]
+position = Vector2(586, 249)

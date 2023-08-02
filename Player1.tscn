@@ -1,10 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://n2y7nkl68lnt"]
+[gd_scene load_steps=9 format=3 uid="uid://n2y7nkl68lnt"]
 
 [ext_resource type="Script" path="res://Scripts/Player1.gd" id="1_4gjkv"]
 [ext_resource type="Texture2D" uid="uid://cnd8bd5o0jp0w" path="res://Assets/Vase1.png" id="1_6oajw"]
+[ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="3_nku5o"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="4_xfm75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tg2h0"]
 size = Vector2(21.5, 36.6667)
+
+[sub_resource type="Animation" id="Animation_hack6"]
+resource_name = "Grab"
+length = 0.500002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/Hit:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0166667, 0, 0.0833333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/Hit/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_8qg2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/Hit:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7px1e"]
+_data = {
+"Grab": SubResource("Animation_hack6"),
+"RESET": SubResource("Animation_8qg2x")
+}
 
 [node name="PLayer1" type="CharacterBody2D"]
 script = ExtResource("1_4gjkv")
@@ -13,7 +65,40 @@ script = ExtResource("1_4gjkv")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_6oajw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 2)
-scale = Vector2(2, 3.5)
+[node name="Collision" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 3.5)
 shape = SubResource("RectangleShape2D_tg2h0")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_nku5o")
+
+[node name="Hurt" type="CollisionShape2D" parent="Hurtbox"]
+scale = Vector2(4, 3.5)
+shape = SubResource("RectangleShape2D_tg2h0")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("4_xfm75")
+
+[node name="Hit" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(70, 23)
+scale = Vector2(2.5, 2)
+shape = SubResource("RectangleShape2D_tg2h0")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Hitbox/Hit"]
+visible = false
+offset_left = -10.8
+offset_top = -18.0
+offset_right = 29.2
+offset_bottom = 22.0
+scale = Vector2(0.552, 0.920001)
+color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7px1e")
+}

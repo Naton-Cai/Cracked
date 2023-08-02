@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtj0uwpmw0etu"]
+
+[ext_resource type="Texture2D" uid="uid://cuywhxihv21xt" path="res://Decas - Copy.png" id="2_pki4g"]
+[ext_resource type="Script" path="res://ragdollP1.gd" id="2_sg0yd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvb38"]
+radius = 41.0
+height = 168.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(5, -2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_sg0yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.25, 2.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pki4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 11)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_nvb38")

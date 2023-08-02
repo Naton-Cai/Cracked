@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfyvunqsxqh21"]
+
+[ext_resource type="Script" path="res://Player 1.gd" id="1_b62k3"]
+[ext_resource type="Texture2D" uid="uid://cuywhxihv21xt" path="res://Decas - Copy.png" id="1_fwukg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ooswq"]
+radius = 41.0
+height = 168.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1ui5"]
+size = Vector2(1189, 35)
+
+[node name="Scene" type="Node2D"]
+
+[node name="Player 1" type="CharacterBody2D" parent="."]
+script = ExtResource("1_b62k3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player 1"]
+texture = ExtResource("1_fwukg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player 1"]
+position = Vector2(-8, 11)
+shape = SubResource("CapsuleShape2D_ooswq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-142, 504)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(707.5, 109.5)
+shape = SubResource("RectangleShape2D_l1ui5")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 112.0
+offset_top = 92.0
+offset_right = 1303.0
+offset_bottom = 130.0

@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfyvunqsxqh21"]
+
+[ext_resource type="Script" path="res://Player 1.gd" id="1_b62k3"]
+[ext_resource type="Texture2D" uid="uid://cuywhxihv21xt" path="res://Decas - Copy.png" id="1_fwukg"]
+[ext_resource type="Script" path="res://Player 2.gd" id="1_nen7r"]
+[ext_resource type="Texture2D" uid="uid://dy8xlnrke32nn" path="res://Abram Paint.net.png" id="4_k2kf3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ooswq"]
+radius = 41.0
+height = 168.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1ui5"]
+size = Vector2(1189, 35)
+
+[node name="Scene" type="Node2D"]
+
+[node name="Player 1" type="CharacterBody2D" parent="."]
+position = Vector2(176, 253)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_b62k3")
+move_speed = null
+jump_force = 700.0
+gravity = 800.0
+fall_force = null
+fast_fall = null
+
+[node name="Sprite" type="Sprite2D" parent="Player 1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_fwukg")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Player 1"]
+position = Vector2(-8, 11)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_ooswq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-142, 504)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(707.5, 109.5)
+shape = SubResource("RectangleShape2D_l1ui5")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 112.0
+offset_top = 92.0
+offset_right = 1303.0
+offset_bottom = 130.0
+
+[node name="Player 2" type="CharacterBody2D" parent="."]
+position = Vector2(508, 520)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_nen7r")
+jump_force = 700.0
+gravity = 800.0
+
+[node name="Sprite" type="Sprite2D" parent="Player 2"]
+position = Vector2(-11.25, -3.75)
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("4_k2kf3")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Player 2"]
+position = Vector2(-8, 11)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CapsuleShape2D_ooswq")

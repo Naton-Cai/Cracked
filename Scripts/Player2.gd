@@ -7,9 +7,9 @@ extends CharacterBody2D
 @export var size = 0.2
 var fast_fall : bool = false
 var doublejump : bool = false
-var p_2 = preload("res://Player_2_Grabbed.tscn")
-var p_2_ragdoll = preload("res://Player_2_ragdoll.tscn")
-var spawn = p_2.instantiate() 
+var p_1 = preload("res://Player_1_Grabbed.tscn")
+var p_1_ragdoll = preload("res://Player_1_ragdoll.tscn")
+var spawn = p_1.instantiate() 
 var isgrabbed = false
 
 
@@ -24,38 +24,38 @@ func _physics_process(delta):
 	if is_on_floor():	
 		velocity.x = 0
 	
-	if Input.is_action_pressed("P1L"):
+	if Input.is_action_pressed("P2L"):
 		velocity.x = -move_speed
-		direction = -1
+		direction = 1
 		get_node( "Sprite2D").scale.x = size  * direction
 		get_node("Hitbox").scale.x = direction
-		if has_node("Player_2_Grabbed"):
-			get_node("Player_2_Grabbed").scale.y = abs(get_node("Player_2_Grabbed").scale.y) * direction
+		if has_node("Player_1_Grabbed"):
+			get_node("Player_1_Grabbed").scale.y = abs(get_node("Player_1_Grabbed").scale.y) * direction
 		
-	if Input.is_action_pressed("P1R"):
+	if Input.is_action_pressed("P2R"):
 		velocity.x = move_speed
-		direction = 1
+		direction = -1
 		get_node("Sprite2D").scale.x = size  * direction
 		get_node("Hitbox").scale.x = direction
-		if has_node("Player_2_Grabbed"):
-			get_node("Player_2_Grabbed").scale.y = abs(get_node("Player_2_Grabbed").scale.y) * direction
+		if has_node("Player_1_Grabbed"):
+			get_node("Player_1_Grabbed").scale.y = abs(get_node("Player_1_Grabbed").scale.y) * direction
 	
-	if Input.is_action_just_pressed("P1U") and (is_on_floor() == true or doublejump == false):
+	if Input.is_action_just_pressed("P2U") and (is_on_floor() == true or doublejump == false):
 			velocity.y = -jump_force
 			if is_on_floor() == false:
 				doublejump = true
 	
-	if Input.is_action_just_pressed("P1D") and is_on_floor() == false and fast_fall == false:
+	if Input.is_action_just_pressed("P2D") and is_on_floor() == false and fast_fall == false:
 		fast_fall = true
 		velocity.y = fall_force
 	
-	if Input.is_action_just_pressed("P1Grab") and isgrabbed == false:
+	if Input.is_action_just_pressed("P2Grab") and isgrabbed == false:
 		$AnimationPlayer.play("Grab")
 	
-	if  Input.is_action_just_pressed("P1Throw") and isgrabbed == true:
-		var ragdoll = p_2_ragdoll.instantiate() as RigidBody2D
+	if  Input.is_action_just_pressed("P2Throw") and isgrabbed == true:
+		var ragdoll = p_1_ragdoll.instantiate() as RigidBody2D
 		ragdoll.position = self.global_position + Vector2(0,-150) 
-		ragdoll.linear_velocity =  Vector2(700 * direction,-500) 
+		ragdoll.linear_velocity =  Vector2(700 * -direction,-500) 
 		ragdoll.angular_velocity =  3
 		remove_child(spawn)
 		add_sibling(ragdoll)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk6236qitf8co"]
+
+[ext_resource type="Script" path="res://Scripts/Player1_Ragdoll.gd" id="1_crsk1"]
+[ext_resource type="Texture2D" uid="uid://cnd8bd5o0jp0w" path="res://Assets/Vase1.png" id="2_gpvcy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qc127"]
+radius = 29.14
+height = 125.7
+
+[node name="Player 1" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_crsk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_gpvcy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qc127")
