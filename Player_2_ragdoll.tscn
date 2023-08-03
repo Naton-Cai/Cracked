@@ -19,3 +19,7 @@ texture = ExtResource("1_xy7ej")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qc127")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

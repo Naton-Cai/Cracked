@@ -23,5 +23,4 @@ texture = ExtResource("2_gpvcy")
 shape = SubResource("CapsuleShape2D_qc127")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true

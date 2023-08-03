@@ -55,6 +55,8 @@ func _physics_process(delta):
 		#plays the grab animation
 		if Input.is_action_just_pressed("P1Grab") and isgrabbed == false:
 			$AnimationPlayer.play("Grab")
+			if is_on_floor():
+				velocity.x = 0
 		
 		#throws a newly spawned ragdoll
 		if  Input.is_action_just_pressed("P1Throw") and isgrabbed == true:
@@ -63,6 +65,7 @@ func _physics_process(delta):
 			ragdoll.linear_velocity =  Vector2(700 * direction,-400) 
 			ragdoll.angular_velocity =  3
 			remove_child(spawn)
+			ragdoll.request_ready()
 			add_sibling(ragdoll)
 			isgrabbed = false
 
@@ -73,3 +76,7 @@ func spawn_grabbed():
 	spawn.position = Vector2(0,-50)  
 	add_child(spawn)
 	isgrabbed = true
+	
+func addpoints(points):
+	get_parent().addpointsP1(points)
+	

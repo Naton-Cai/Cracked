@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=5 format=3 uid="uid://b6nnl45g3b8mh"]
 
 [ext_resource type="Script" path="res://Scripts/Stage.gd" id="1_pyivf"]
+[ext_resource type="PackedScene" uid="uid://b2xeoudfo4xub" path="res://Gem.tscn" id="2_q72ow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
-size = Vector2(2069.25, 7.5)
+size = Vector2(2069.25, 25.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnub7"]
 size = Vector2(20, 1128.5)
@@ -30,3 +31,6 @@ shape = SubResource("RectangleShape2D_nnub7")
 [node name="Lwall" type="CollisionShape2D" parent="Body"]
 position = Vector2(1918, 565.75)
 shape = SubResource("RectangleShape2D_nnub7")
+
+[node name="Gem" parent="." instance=ExtResource("2_q72ow")]
+position = Vector2(191, 90)

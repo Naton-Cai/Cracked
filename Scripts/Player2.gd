@@ -14,6 +14,9 @@ var p_1_ragdoll = preload("res://Player_1_ragdoll.tscn")
 var spawn = p_1.instantiate() 
 var isgrabbed = false
 
+func _ready():
+	get_node( "Sprite2D").scale.x = size  * direction
+	get_node("Hitbox").scale.x = direction
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -56,6 +59,8 @@ func _physics_process(delta):
 		#plays the grab animation
 		if Input.is_action_just_pressed("P2Grab") and isgrabbed == false:
 			$AnimationPlayer.play("Grab")
+			if is_on_floor():
+				velocity.x = 0
 		
 		#throws a newly spawned ragdoll
 		if  Input.is_action_just_pressed("P2Throw") and isgrabbed == true:
@@ -64,6 +69,7 @@ func _physics_process(delta):
 			ragdoll.linear_velocity =  Vector2(700 * direction,-500) 
 			ragdoll.angular_velocity =  3
 			remove_child(spawn)
+			ragdoll.request_ready()
 			add_sibling(ragdoll)
 			isgrabbed = false
 
@@ -74,3 +80,6 @@ func spawn_grabbed():
 	spawn.position = Vector2(0,-50)  
 	add_child(spawn)
 	isgrabbed = true
+	
+func addpoints(points):
+	get_parent().addpointsP2(points)

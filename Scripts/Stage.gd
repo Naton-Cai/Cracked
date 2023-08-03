@@ -3,11 +3,13 @@ var player2 = preload("res://Player2.tscn")
 var player1 = preload("res://Player1.tscn")
 var player1HP = 20
 var player2HP = 20
+var player1Points = 0
+var player2Points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawnP1(Vector2(460, 50))
-	spawnP2(Vector2(1460, 50))
+	spawnP1(Vector2(460, 200))
+	spawnP2(Vector2(1460, 200))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
@@ -16,15 +18,21 @@ func _physics_process(_delta):
 	
 #calculates damage for player 1
 func P1Damage(damage):
-	print(damage)
 	player1HP -= damage
 	return player1HP
 
 #calculates damage for player 2
 func P2Damage(damage):
-	print(damage)
 	player2HP -= damage
 	return player2HP
+
+func respawnP1():
+	player1HP = 20
+	spawnP1(Vector2(460, 200))
+
+func respawnP2():
+	player2HP = 20
+	spawnP2(Vector2(1460, 200))
 
 #spawns player 1 into position
 func spawnP1(position):
@@ -39,3 +47,14 @@ func spawnP2(position):
 	player_2.position = position  
 	player_2.set_physics_process(true)
 	self.add_child(player_2)
+	
+func addpointsP1(points):
+	print(player1Points)
+	player1Points += points
+	print(player1Points)
+	
+func addpointsP2(points):
+	print(player2Points)
+	player2Points += points
+	print(player2Points)
+
