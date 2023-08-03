@@ -1,8 +1,10 @@
 extends Node2D
 var player2 = preload("res://Player2.tscn")
 var player1 = preload("res://Player1.tscn")
-var player1HP = 20
-var player2HP = 20
+var player1HP = 30
+var player2HP = 30
+var player1STAMINA = 700.0
+var player2STAMINA = 700.0
 var player1Points = 0
 var player2Points = 0
 
@@ -29,10 +31,12 @@ func P2Damage(damage):
 func respawnP1():
 	player1HP = 20
 	spawnP1(Vector2(460, 200))
+	player1STAMINA = 700.0
 
 func respawnP2():
 	player2HP = 20
 	spawnP2(Vector2(1460, 200))
+	player2STAMINA = 700.0
 
 #spawns player 1 into position
 func spawnP1(position):
@@ -49,12 +53,8 @@ func spawnP2(position):
 	self.add_child(player_2)
 	
 func addpointsP1(points):
-	print(player1Points)
 	player1Points += points
-	print(player1Points)
 	
 func addpointsP2(points):
-	print(player2Points)
 	player2Points += points
-	print(player2Points)
 

@@ -3,10 +3,9 @@ var gem = preload("res://Gem.tscn")
 var stun = 5.0
 var timer
 var collided = false
-var impact_velocity
+var start_distance = Vector2(0,0)
 
 func _init():
-	print("INIT")
 	self.contact_monitor = true
 	self.max_contacts_reported = 1
 	stun = 2.0
@@ -14,28 +13,37 @@ func _init():
 	
 func _ready():
 	self.body_entered.connect(self._on_body_entered)
+	start_distance = self.global_position
+	
 	timer = get_node("Timer")
 	timer.timeout.connect(self._on_timeout)
 	timer.set_wait_time(stun)
 	timer.start()	
 	
+	
 func _physics_process(_delta):
-	impact_velocity = self.linear_velocity
 	if get_parent().player1HP > 0 and get_parent().has_method("spawnP1") and get_parent().has_method("P1Damage"):
 		if  Input.is_action_just_pressed("P1U"):
 			if timer.time_left - 1.0 <= 0.0:
 				timer.stop()
 				timer.emit_signal("timeout")
+				if collided == false:
+					get_parent().player1STAMINA = min(2*get_parent().player1STAMINA, 3000.0)
 			else:
-				stun = timer.time_left - 0.5
+				stun = timer.time_left - 0.2
 				timer.set_wait_time(stun)
 				timer.start()	
 			
 func _on_body_entered(node):
-	#var force = self.linear_velocity / self.inverse_mass() / self.step
 	if collided == false:
 		collided = true
-		if get_parent().P1Damage(5) <= 0:
+	
+		#damage calcuations based of distance
+		var travel_distance = self.global_position - start_distance
+		var damage = (abs(travel_distance.x) + abs(travel_distance.y))/150 + 3	
+		get_parent().player1STAMINA = min(1.5*get_parent().player1STAMINA, 3000.0)
+		
+		if get_parent().P1Damage(damage) <= 0:
 			#generates 1-5 gems
 			for i in range(randi_range(1,5)):
 				var gem_object = gem.instantiate() 

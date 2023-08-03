@@ -83,6 +83,7 @@ _data = {
 }
 
 [node name="PLayer1" type="CharacterBody2D"]
+platform_floor_layers = 4294967294
 script = ExtResource("1_4gjkv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
