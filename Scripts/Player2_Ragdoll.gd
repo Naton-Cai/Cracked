@@ -20,6 +20,8 @@ func _ready():
 	timer.start()	
 	
 func _physics_process(_delta):
+	#the recover system, pressing up allows the player to recover from a throw 
+	#and potential not hit the wall at the cost of stamina
 	if get_parent().player1HP > 0 and get_parent().has_method("spawnP2") and get_parent().has_method("P2Damage"):
 		if  Input.is_action_just_pressed("P2U"):
 			if timer.time_left - 1.0 <= 0.0:

@@ -1,10 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=4 format=3 uid="uid://b6nnl45g3b8mh"]
 
 [ext_resource type="Script" path="res://Scripts/Stage.gd" id="1_pyivf"]
-[ext_resource type="PackedScene" uid="uid://b2xeoudfo4xub" path="res://Gem.tscn" id="2_q72ow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
-size = Vector2(2069.25, 25.75)
+size = Vector2(3125, 105.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnub7"]
 size = Vector2(20, 1128.5)
@@ -13,24 +12,23 @@ size = Vector2(20, 1128.5)
 script = ExtResource("1_pyivf")
 
 [node name="Body" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 259
+collision_mask = 259
 
 [node name="Floor" type="CollisionShape2D" parent="Body"]
-position = Vector2(1035, 1043)
+position = Vector2(1427, 1040)
 shape = SubResource("RectangleShape2D_0f4u3")
 
 [node name="Ceiling" type="CollisionShape2D" parent="Body"]
-position = Vector2(894, 1)
+position = Vector2(902, -50)
 shape = SubResource("RectangleShape2D_0f4u3")
 
 [node name="Rwall" type="CollisionShape2D" parent="Body"]
-position = Vector2(-3, 547)
+position = Vector2(-49, 542)
+scale = Vector2(-6.05768, 0.974276)
 shape = SubResource("RectangleShape2D_nnub7")
 
 [node name="Lwall" type="CollisionShape2D" parent="Body"]
-position = Vector2(1918, 565.75)
+position = Vector2(1951, 571)
+scale = Vector2(4.28, 1)
 shape = SubResource("RectangleShape2D_nnub7")
-
-[node name="Gem" parent="." instance=ExtResource("2_q72ow")]
-position = Vector2(191, 90)

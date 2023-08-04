@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmo56n8r6774t"]
+
+[ext_resource type="Script" path="res://Scripts/broke_vase.gd" id="1_02444"]
+[ext_resource type="Texture2D" uid="uid://vmfleiqw14t2" path="res://Assets/Broke Vase 1/Vase1.png" id="2_xktqb"]
+[ext_resource type="Texture2D" uid="uid://csl8st8aokmuv" path="res://Assets/Broke Vase 1/Vase2.png" id="3_rkksv"]
+[ext_resource type="Texture2D" uid="uid://dstjegdeyyube" path="res://Assets/Broke Vase 1/Vase3.png" id="4_28yar"]
+[ext_resource type="Texture2D" uid="uid://bmogmslc2gpg1" path="res://Assets/Broke Vase 1/Vase4.png" id="5_e4uk0"]
+[ext_resource type="Texture2D" uid="uid://cp0c4ylkfevyu" path="res://Assets/Broke Vase 1/Vase5.png" id="6_n2hp7"]
+[ext_resource type="Texture2D" uid="uid://bxoufp82kc6fp" path="res://Assets/Broke Vase 1/Vase6.png" id="7_gmmck"]
+[ext_resource type="Texture2D" uid="uid://8d660g4uorl8" path="res://Assets/Broke Vase 1/Vase7.png" id="8_5lwrx"]
+[ext_resource type="Texture2D" uid="uid://cr7it55bll6oa" path="res://Assets/Broke Vase 1/Vase8.png" id="9_i6kfc"]
+
+[node name="Broken Vase 1" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+
+[node name="Vase1" type="RigidBody2D" parent="."]
+position = Vector2(-15, -45)
+collision_layer = 256
+collision_mask = 256
+center_of_mass_mode = 1
+
+[node name="Vase1" type="Sprite2D" parent="Vase1"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xktqb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase1"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(54, -41, 49, -41, 49, -16, 46.1, -16, 40, -14.5, 40, 56, 37.2, 56, 13, 57.9, 13, 63, -40, 63, -40, 52.4, -31, 50.4, -31, 40, -37.9, 40, -39.9, 13, -46.8, 13, -48.8, -5, -54, -5, -54, -58, -49, -58, -49, -63, 54, -63)
+
+[node name="Vase2" type="RigidBody2D" parent="."]
+position = Vector2(10, -45)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_02444")
+
+[node name="Vase2" type="Sprite2D" parent="Vase2"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_rkksv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase2"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(62.5, -58, 67.5, -58, 67.5, -23, 62.1, -23, 60.1, -14, 53.5, -14, 53.5, 2, 50.6, 2, 44.5, 3.5, 44.5, 9.8, 41.3, 13, 35.5, 13, 35.5, 29, 32.6, 29, 26.5, 30.5, 26.5, 36.8, 23.3, 40, 17.5, 40, 17.5, 50, 33.5, 50, 33.5, 52.6, 35.5, 63, -26.5, 63, -26.5, 58, -67.5, 58, -67.5, -13, -62.5, -13, -62.5, -38, -59.6, -38, -53.5, -39.5, -53.5, -63, 62.5, -63)
+
+[node name="Vase3" type="RigidBody2D" parent="."]
+position = Vector2(-20, -15)
+collision_layer = 256
+collision_mask = 256
+center_of_mass_mode = 1
+script = ExtResource("1_02444")
+
+[node name="Vase3" type="Sprite2D" parent="Vase3"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_28yar")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase3"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(72, -50, 67, -50, 67, -7, 64.1, -7, 58, -5.5, 58, 38, 55.1, 38, 49, 39.5, 49, 81, 23, 81, 23, 76, 16.4, 76, 14.4, 67, 8.2, 67, 5, 63.8, 5, 58, -0.800003, 58, -4, 54.8, -4, 49, -9.8, 49, -13, 45.8, -13, 40, -18.8, 40, -22, 36.8, -22, 31, -27.8, 31, -31, 27.8, -31, 22, -36.8, 22, -40, 18.8, -40, 13, -45.8, 13, -49, 9.8, -49, 4, -54.8, 4, -58, 0.800003, -58, -5, -72, -5, -72, -22, -67, -22, -67, -38, -64.1, -38, -58, -39.5, -58, -45.8, -54.8, -49, -49, -49, -49, -54.8, -45.8, -58, -40, -58, -40, -63.8, -36.8, -67, -31, -67, -31, -72.8, -27.8, -76, 41, -76, 41, -81, 72, -81)
+
+[node name="Vase4" type="RigidBody2D" parent="."]
+position = Vector2(10, -15)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_02444")
+
+[node name="Vase4" type="Sprite2D" parent="Vase4"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_e4uk0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase4"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-18.5, -76, 32.3, -76, 35.5, -72.8, 35.5, -57.6, 44.5, -55.6, 44.5, -3.6, 53.5, -1.6, 53.5, 41, 58.5, 41, 58.5, 81, 45.5, 81, 45.5, 76, 39.7, 76, 36.5, 72.8, 36.5, 67, 30.7, 67, 27.5, 63.8, 27.5, 58, 11.9, 58, 9.9, 49, 3.7, 49, 0.5, 45.8, 0.5, 40, -5.3, 40, -8.5, 36.8, -8.5, 31, -24.1, 31, -26.1, 22, -32.3, 22, -35.5, 18.8, -35.5, 13, -41.3, 13, -44.5, 9.8, -44.5, 4, -50.3, 4, -53.5, 0.800003, -53.5, -5, -58.5, -5, -58.5, -58, -53.5, -58, -53.5, -81, -18.5, -81)
+
+[node name="Vase5" type="RigidBody2D" parent="."]
+position = Vector2(30, -10)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_02444")
+
+[node name="Vase5" type="Sprite2D" parent="Vase5"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_n2hp7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase5"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-36.5, -102.6, -27.5, -100.6, -27.5, -94, -11.5, -94, -11.5, -91, -10, -85, -3.7, -85, -0.5, -81.8, -0.5, -76, 5.3, -76, 8.5, -72.8, 8.5, -57.6, 17.5, -55.6, 17.5, -40, 24.1, -40, 26.1, -31, 32.3, -31, 35.5, -27.8, 35.5, -3.6, 44.5, -1.6, 44.5, 32, 49.5, 32, 49.5, 103, 44.5, 103, 44.5, 108, 27.5, 108, 27.5, 103, 20.5, 103, 20.5, 100, 19, 94, 12.7, 94, 9.5, 90.8, 9.5, 85, -6.5, 85, -6.5, 82, -8, 76, -14.3, 76, -17.5, 72.8, -17.5, 67, -23.3, 67, -26.5, 63.8, -26.5, 21.6, -35.5, 19.6, -35.5, -23.4, -44.5, -25.4, -44.5, -77, -49.5, -77, -49.5, -108, -36.5, -108)
+
+[node name="Vase6" type="RigidBody2D" parent="."]
+position = Vector2(-25, 15)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_02444")
+
+[node name="Vase6" type="Sprite2D" parent="Vase6"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_gmmck")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase6"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-18.5, -112, -11.5, -112, -11.5, -109, -10, -103, -3.7, -103, -0.5, -99.8, -0.5, -94, 5.3, -94, 8.5, -90.8, 8.5, -85, 14.3, -85, 17.5, -81.8, 17.5, -76, 23.3, -76, 26.5, -72.8, 26.5, -67, 32.3, -67, 35.5, -63.8, 35.5, -58, 41.3, -58, 44.5, -54.8, 44.5, -49, 50.3, -49, 53.5, -45.8, 53.5, -40, 59.3, -40, 62.5, -36.8, 62.5, -22, 67.5, -22, 67.5, 13, 62.5, 13, 62.5, 56, 59.6, 56, 53.5, 57.5, 53.5, 100.6, 44.5, 102.6, 44.5, 117, 18.5, 117, 18.5, 112, -6.5, 112, -6.5, 109, -8, 103, -14.3, 103, -17.5, 99.8, -17.5, 94, -33.1, 94, -35.1, 85, -41.3, 85, -44.5, 81.8, -44.5, 76, -50.3, 76, -53.5, 72.8, -53.5, 57.6, -62.5, 55.6, -62.5, 40, -67.5, 40, -67.5, -76, -62.5, -76, -62.5, -110, -59.6, -110, -53.5, -111.5, -53.5, -117, -18.5, -117)
+
+[node name="Vase7" type="RigidBody2D" parent="."]
+position = Vector2(5, 15)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_02444")
+
+[node name="Vase7" type="Sprite2D" parent="Vase7"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_5lwrx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase7"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-14, -116.5, -7, -116.5, -7, -113.5, -5.5, -107.5, 0.800003, -107.5, 4, -104.3, 4, -98.5, 9.8, -98.5, 13, -95.3, 13, -89.5, 29, -89.5, 29, -86.5, 30.5, -80.5, 36.8, -80.5, 40, -77.3, 40, -71.5, 45.8, -71.5, 49, -68.3, 49, -62.5, 65, -62.5, 65, -59.5, 66.5, -53.5, 72.8, -53.5, 76, -50.3, 76, -44.5, 81, -44.5, 81, -27.5, 75.6, -27.5, 73.6, -18.5, 67, -18.5, 67, -2.5, 64.1, -2.5, 58, -1, 58, 5.3, 54.8, 8.5, 49, 8.5, 49, 24.1, 40, 26.1, 40, 32.3, 36.8, 35.5, 31, 35.5, 31, 51.1, 22, 53.1, 22, 59.3, 18.8, 62.5, 13, 62.5, 13, 78.1, 4, 80.1, 4, 86.3, 0.800003, 89.5, -5, 89.5, -5, 105.1, -14, 107.1, -14, 113.3, -17.2, 116.5, -23, 116.5, -23, 121.5, -81, 121.5, -81, 90.5, -76, 90.5, -76, 47.5, -73.1, 47.5, -67, 46, -67, 2.5, -64.1, 2.5, -58, 1, -58, -42.5, -55.1, -42.5, -49, -44, -49, -87.5, -46.1, -87.5, -40, -89, -40, -121.5, -14, -121.5)
+
+[node name="Vase8" type="RigidBody2D" parent="."]
+position = Vector2(25, 25)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_02444")
+
+[node name="Vase8" type="Sprite2D" parent="Vase8"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_i6kfc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase8"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(31, -71.5, 38, -71.5, 38, -68.5, 39.5, -62.5, 45.8, -62.5, 49, -59.3, 49, -53.5, 65, -53.5, 65, -50.5, 66.5, -44.5, 72.8, -44.5, 76, -41.3, 76, -35.5, 81.8, -35.5, 85, -32.3, 85, -26.5, 90, -26.5, 90, -9.5, 85, -9.5, 85, -2.5, 82.1, -2.5, 76, -1, 76, 5.3, 72.8, 8.5, 67, 8.5, 67, 24.5, 64.1, 24.5, 58, 26, 58, 32.3, 54.8, 35.5, 49, 35.5, 49, 41.3, 45.8, 44.5, 40, 44.5, 40, 50.3, 36.8, 53.5, 31, 53.5, 31, 59.3, 27.8, 62.5, 13, 62.5, 13, 68.3, 9.8, 71.5, -14, 71.5, -14, 76.5, -90, 76.5, -90, 63.5, -84.6, 63.5, -82.6, 54.5, -76, 54.5, -76, 38.5, -73.1, 38.5, -67, 37, -67, 30.7, -63.8, 27.5, -58, 27.5, -58, 11.5, -55.1, 11.5, -49, 10, -49, 3.7, -45.8, 0.5, -40, 0.5, -40, -15.5, -37.1, -15.5, -31, -17, -31, -23.3, -27.8, -26.5, -22, -26.5, -22, -42.5, -19.1, -42.5, -13, -44, -13, -50.3, -9.8, -53.5, -4, -53.5, -4, -69.5, -1.1, -69.5, 5, -71, 5, -76.5, 31, -76.5)

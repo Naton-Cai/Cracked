@@ -83,6 +83,7 @@ _data = {
 }
 
 [node name="PLayer1" type="CharacterBody2D"]
+z_index = 4
 platform_floor_layers = 4294967294
 script = ExtResource("1_4gjkv")
 

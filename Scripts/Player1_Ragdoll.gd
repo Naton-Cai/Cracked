@@ -1,5 +1,6 @@
 extends RigidBody2D
 var gem = preload("res://Gem.tscn")
+var vase = preload("res://broken_vase_1.tscn")
 var stun = 5.0
 var timer
 var collided = false
@@ -22,6 +23,8 @@ func _ready():
 	
 	
 func _physics_process(_delta):
+	#the recover system, pressing up allows the player to recover from a throw 
+	#and potential not hit the wall at the cost of stamina
 	if get_parent().player1HP > 0 and get_parent().has_method("spawnP1") and get_parent().has_method("P1Damage"):
 		if  Input.is_action_just_pressed("P1U"):
 			if timer.time_left - 1.0 <= 0.0:
@@ -52,6 +55,13 @@ func _on_body_entered(node):
 				gem_object.angular_velocity =  4
 				get_parent().add_child(gem_object)
 				self.queue_free()	
+				
+			#generates the broke vase pieces
+			var vase_object = vase.instantiate() 
+			vase_object.position = self.global_position
+			vase_object.rotation = self.rotation
+			vase_object.request_ready()
+			get_parent().add_child(vase_object)
 			get_parent().respawnP1()
 	
 		

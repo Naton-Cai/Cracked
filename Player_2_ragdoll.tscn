@@ -8,6 +8,7 @@ radius = 29.14
 height = 125.7
 
 [node name="Player 2" type="RigidBody2D"]
+z_index = 2
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_7sluo")
