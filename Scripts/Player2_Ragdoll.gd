@@ -1,5 +1,6 @@
 extends RigidBody2D
 var gem = preload("res://Gem.tscn")
+var vase = preload("res://broken_vase_2.tscn")
 var stun = 5.0
 var timer
 var collided = false
@@ -51,9 +52,18 @@ func _on_body_entered(node):
 				gem_object.linear_velocity =  Vector2(randf_range(250, -250),-900)
 				gem_object.angular_velocity =  4
 				get_parent().add_child(gem_object)
-				self.queue_free()	
+				self.queue_free()
+				
+			#generates the broke vase pieces
+			var vase_object = vase.instantiate() 
+			vase_object.position = self.global_position
+			vase_object.rotation = self.rotation
+			vase_object.request_ready()
+			get_parent().add_child(vase_object)	
+				
 			get_parent().respawnP2()
-	
+
+
 		
 
 func _on_timeout():

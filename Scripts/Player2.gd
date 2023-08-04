@@ -25,8 +25,9 @@ func _physics_process(delta):
 	if is_on_floor():
 		fast_fall = false
 		doublejump = false
-		if grab_animation == false:
-			velocity.x = 0
+		
+	if grab_animation:
+		velocity.x = 0
 	
 	#we don't want the player to move during the grab animation 
 	#so the script only reads inputs when not doing the grab animation

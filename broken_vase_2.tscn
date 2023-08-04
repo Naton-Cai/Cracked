@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://b57i1mvx5mu8q"]
+
+[ext_resource type="Texture2D" uid="uid://d2t4fkyrovrkk" path="res://Assets/Broke Vase 2/Vase1.png" id="1_v7biu"]
+[ext_resource type="Script" path="res://Scripts/broke_vase.gd" id="2_5jxuf"]
+[ext_resource type="Texture2D" uid="uid://4egqat8cwdkx" path="res://Assets/Broke Vase 2/Vase2.png" id="3_uy747"]
+[ext_resource type="Texture2D" uid="uid://bau8ibatf8dep" path="res://Assets/Broke Vase 2/Vase3.png" id="4_n65db"]
+[ext_resource type="Texture2D" uid="uid://c573346vy3fn2" path="res://Assets/Broke Vase 2/Vase4.png" id="5_is5tr"]
+[ext_resource type="Texture2D" uid="uid://dk05jur66us5g" path="res://Assets/Broke Vase 2/Vase5.png" id="6_ece51"]
+[ext_resource type="Texture2D" uid="uid://b5guskxcp5vki" path="res://Assets/Broke Vase 2/Vase6.png" id="7_hmyow"]
+[ext_resource type="Texture2D" uid="uid://bicubcm8bwvpo" path="res://Assets/Broke Vase 2/Vase7.png" id="8_h378j"]
+
+[node name="Broken Vase 2" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+
+[node name="Vase1" type="RigidBody2D" parent="."]
+position = Vector2(0, -45)
+collision_layer = 256
+collision_mask = 256
+center_of_mass_mode = 1
+
+[node name="Vase1" type="Sprite2D" parent="Vase1"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_v7biu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase1"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(94, -58, 99, -58, 99, -32, 93.6, -32, 91.6, -23, 76, -23, 76, -16, 73.1, -16, 67, -14.5, 67, -8.2, 63.8, -5, 58, -5, 58, 19.6, 49, 21.6, 49, 41, 55.8, 41, 58, 63, -4, 63, -4, 58, -38, 58, -38, 55, -39.8, 40, -46.6, 40, -48.6, 31, -54.8, 31, -58, 27.8, -58, 22, -63.8, 22, -67, 18.8, -67, 13, -72.8, 13, -76, 9.8, -76, -5, -82.6, -5, -84.6, -14, -90.8, -14, -94, -17.2, -94, -23, -99, -23, -99, -49, -94, -49, -94, -54.8, -90.8, -58, -67, -58, -67, -63, 94, -63)
+
+[node name="Vase2" type="RigidBody2D" parent="."]
+position = Vector2(-10, -20)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_5jxuf")
+
+[node name="Vase2" type="Sprite2D" parent="Vase2"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_uy747")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase2"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(31, -58, 38, -58, 38, -55, 39.5, -49, 45.8, -49, 49, -45.8, 49, -30.6, 58, -28.6, 58, -3.6, 67, -1.6, 67, 14, 72, 14, 72, 49, 66.6, 49, 64.6, 58, 34, 58, 34, 55, 32.5, 49, -2, 49, -2, 46, -3.5, 40, -32, 40, -32, 46.6, -41, 48.6, -41, 54.8, -44.2, 58, -50, 58, -50, 63, -72, 63, -72, 50, -67, 50, -67, 44.2, -63.8, 41, -58, 41, -58, 25.4, -49, 23.4, -49, 17.2, -45.8, 14, -40, 14, -40, -1.6, -31, -3.6, -31, -9.8, -27.8, -13, -22, -13, -22, -28.6, -13, -30.6, -13, -63, 31, -63)
+
+[node name="Vase3" type="RigidBody2D" parent="."]
+position = Vector2(15, -20)
+collision_layer = 256
+collision_mask = 256
+center_of_mass_mode = 1
+script = ExtResource("2_5jxuf")
+
+[node name="Vase3" type="Sprite2D" parent="Vase3"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_n65db")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase3"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(17.5, -22, 24.5, -22, 24.5, -19, 26, -13, 32.3, -13, 35.5, -9.8, 35.5, -4, 40.5, -4, 40.5, 22, 17.1, 22, 15.1, 31, 8.5, 31, 8.5, 36, -8.5, 36, -8.5, 30.6, -17.5, 28.6, -17.5, 12.6, -26.5, 10.6, -26.5, -5.4, -35.5, -7.4, -35.5, -23, -40.5, -23, -40.5, -36, 17.5, -36)
+
+[node name="Vase4" type="RigidBody2D" parent="."]
+position = Vector2(-25, 15)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_5jxuf")
+
+[node name="Vase4" type="Sprite2D" parent="Vase4"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_is5tr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase4"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(58, -107.5, 92, -107.5, 92, -104.5, 93.5, -98.5, 117, -98.5, 117, -63.5, 112, -63.5, 112, -38.9, 103, -36.9, 103, -20.5, 100.2, -20.5, 76, -18.6, 76, -12.7, 72.8, -9.5, 30.6, -9.5, 28.6, -0.5, 4, -0.5, 4, 15.1, -5, 17.1, -5, 23.3, -8.2, 26.5, -14, 26.5, -14, 32.3, -17.2, 35.5, -23, 35.5, -23, 41.3, -26.2, 44.5, -32, 44.5, -32, 50.3, -35.2, 53.5, -41, 53.5, -41, 78.1, -50, 80.1, -50, 86.3, -53.2, 89.5, -68.4, 89.5, -70.4, 98.5, -86, 98.5, -86, 112.5, -112, 112.5, -112, 107.5, -117, 107.5, -117, 54.5, -112, 54.5, -112, 38.5, -109.1, 38.5, -103, 37, -103, 20.5, -100.1, 20.5, -94, 19, -94, 12.7, -90.8, 9.5, -85, 9.5, -85, -6.5, -82.1, -6.5, -76, -8, -76, -14.3, -72.8, -17.5, -67, -17.5, -67, -33.5, -64.1, -33.5, -58, -35, -58, -41.3, -54.8, -44.5, -49, -44.5, -49, -50.3, -45.8, -53.5, -40, -53.5, -40, -69.5, -37.1, -69.5, -31, -71, -31, -77.3, -27.8, -80.5, -13, -80.5, -13, -86.3, -9.8, -89.5, 5, -89.5, 5, -96.1, 14, -98.1, 14, -104.3, 17.2, -107.5, 23, -107.5, 23, -112.5, 58, -112.5)
+
+[node name="Vase5" type="RigidBody2D" parent="."]
+position = Vector2(25, 10)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_5jxuf")
+
+[node name="Vase5" type="Sprite2D" parent="Vase5"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_ece51")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase5"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-5, -94, 2, -94, 2, -91, 3.5, -85, 9.8, -85, 13, -81.8, 13, -76, 18.8, -76, 22, -72.8, 22, -67, 27.8, -67, 31, -63.8, 31, -58, 36.8, -58, 40, -54.8, 40, -39.6, 49, -37.6, 49, -22, 54.8, -22, 58, -18.8, 58, 5.4, 67, 7.4, 67, 23.4, 76, 25.4, 76, 50.4, 85, 52.4, 85, 68, 90, 68, 90, 108, 77, 108, 77, 103, 61.4, 103, 59.4, 94, 53.2, 94, 50, 90.8, 50, 85, 44.2, 85, 41, 81.8, 41, 76, 35.2, 76, 32, 72.8, 32, 57.6, 23, 55.6, 23, 49, 7.4, 49, 5.4, 40, -10.6, 40, -12.6, 31, -18.8, 31, -22, 27.8, -22, 22, -37.6, 22, -39.6, 13, -45.8, 13, -49, 9.8, -49, 4, -54.8, 4, -58, 0.800003, -58, -5, -73.6, -5, -75.6, -14, -81.8, -14, -85, -17.2, -85, -23, -90, -23, -90, -49, -85, -49, -85, -65, -82.1, -65, -76, -66.5, -76, -83, -73.1, -83, -67, -84.5, -67, -90.8, -63.8, -94, -58, -94, -58, -99.8, -54.8, -103, -49, -103, -49, -108, -5, -108)
+
+[node name="Vase6" type="RigidBody2D" parent="."]
+position = Vector2(20, 30)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_5jxuf")
+
+[node name="Vase6" type="Sprite2D" parent="Vase6"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_hmyow")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase6"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(-59, -84.6, -50, -82.6, -50, -76, -34, -76, -34, -73, -32.5, -67, -26.2, -67, -23, -63.8, -23, -58, -7.4, -58, -5.4, -49, 11, -49, 11, -46, 12.5, -40, 18.8, -40, 22, -36.8, 22, -31, 27.8, -31, 31, -27.8, 31, -22, 47, -22, 47, -19, 48.5, -13, 54.8, -13, 58, -9.8, 58, -4, 63.8, -4, 67, -0.800003, 67, 14, 74, 14, 74, 17, 75.5, 23, 81.8, 23, 85, 26.2, 85, 32, 100.6, 32, 102.6, 41, 117, 41, 117, 67, 112, 67, 112, 74, 109.1, 74, 103, 75.5, 103, 81.8, 99.8, 85, 94, 85, 94, 90, -117, 90, -117, 41, -112, 41, -112, 16.4, -103, 14.4, -103, -2, -100.1, -2, -94, -3.5, -94, -28.6, -85, -30.6, -85, -73.6, -76, -75.6, -76, -90, -59, -90)
+
+[node name="Vase7" type="RigidBody2D" parent="."]
+position = Vector2(-20, 30)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("2_5jxuf")
+
+[node name="Vase7" type="Sprite2D" parent="Vase7"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_h378j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase7"]
+scale = Vector2(0.2, 0.2)
+polygon = PackedVector2Array(90, -54.5, 85, -54.5, 85, -29.5, 82.1, -29.5, 76, -28, 76, -11.5, 73.1, -11.5, 67, -10, 67, 15.5, 64.1, 15.5, 58, 17, 58, 67.5, -90, 67.5, -90, 45.5, -75.6, 45.5, -73.6, 36.5, -57.6, 36.5, -55.6, 27.5, -49, 27.5, -49, 2.9, -40, 0.900002, -40, -5.3, -36.8, -8.5, -31, -8.5, -31, -14.3, -27.8, -17.5, -22, -17.5, -22, -23.3, -18.8, -26.5, -13, -26.5, -13, -32.3, -9.8, -35.5, -4, -35.5, -4, -50.3, -0.800003, -53.5, 23.4, -53.5, 25.4, -62.5, 59, -62.5, 59, -67.5, 90, -67.5)
