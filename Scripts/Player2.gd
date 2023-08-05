@@ -26,7 +26,7 @@ func _physics_process(delta):
 		fast_fall = false
 		doublejump = false
 		
-	if grab_animation:
+	if grab_animation == false:
 		velocity.x = 0
 	
 	#we don't want the player to move during the grab animation 
