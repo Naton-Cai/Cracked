@@ -21,6 +21,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		fast_fall = false
 		doublejump = false
+	
 		if grab_animation == false:
 			velocity.x = 0
 			
