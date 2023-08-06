@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2xeoudfo4xub"]
+[gd_scene load_steps=4 format=3 uid="uid://b2xeoudfo4xub"]
 
 [ext_resource type="Script" path="res://Scripts/Gem.gd" id="1_0kium"]
+[ext_resource type="Texture2D" uid="uid://3de4s5gr72fg" path="res://Assets/Gem/Gem.png" id="2_ka4gs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ylyo"]
 
@@ -10,6 +11,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -10.0
 offset_top = -15.0
 offset_right = 10.0
@@ -28,3 +30,8 @@ shape = SubResource("CapsuleShape2D_3ylyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3ylyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.59, -1.86)
+scale = Vector2(0.136886, 0.136886)
+texture = ExtResource("2_ka4gs")
