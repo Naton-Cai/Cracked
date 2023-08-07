@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2xeoudfo4xub"]
 
 [ext_resource type="Script" path="res://Scripts/Gem.gd" id="1_0kium"]
-[ext_resource type="Texture2D" uid="uid://3de4s5gr72fg" path="res://Assets/Gem/Gem.png" id="2_ka4gs"]
+[ext_resource type="Texture2D" uid="uid://c2vm1tac2vg0u" path="res://Assets/Gem/Gem.png" id="2_ka4gs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ylyo"]
 

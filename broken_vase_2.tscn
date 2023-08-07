@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b57i1mvx5mu8q"]
+[gd_scene load_steps=10 format=3 uid="uid://bkd03luv61smb"]
 
+[ext_resource type="Script" path="res://Scripts/broken_vase.gd" id="1_mdgiw"]
 [ext_resource type="Texture2D" uid="uid://d2t4fkyrovrkk" path="res://Assets/Broke Vase 2/Vase1.png" id="1_v7biu"]
 [ext_resource type="Script" path="res://Scripts/broke_vase.gd" id="2_5jxuf"]
 [ext_resource type="Texture2D" uid="uid://4egqat8cwdkx" path="res://Assets/Broke Vase 2/Vase2.png" id="3_uy747"]
@@ -11,6 +12,7 @@
 
 [node name="Broken Vase 2" type="Node2D"]
 scale = Vector2(0.2, 0.2)
+script = ExtResource("1_mdgiw")
 
 [node name="Vase1" type="RigidBody2D" parent="."]
 position = Vector2(0, -45)
@@ -110,3 +112,7 @@ texture = ExtResource("8_h378j")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vase7"]
 scale = Vector2(0.2, 0.2)
 polygon = PackedVector2Array(90, -54.5, 85, -54.5, 85, -29.5, 82.1, -29.5, 76, -28, 76, -11.5, 73.1, -11.5, 67, -10, 67, 15.5, 64.1, 15.5, 58, 17, 58, 67.5, -90, 67.5, -90, 45.5, -75.6, 45.5, -73.6, 36.5, -57.6, 36.5, -55.6, 27.5, -49, 27.5, -49, 2.9, -40, 0.900002, -40, -5.3, -36.8, -8.5, -31, -8.5, -31, -14.3, -27.8, -17.5, -22, -17.5, -22, -23.3, -18.8, -26.5, -13, -26.5, -13, -32.3, -9.8, -35.5, -4, -35.5, -4, -50.3, -0.800003, -53.5, 23.4, -53.5, 25.4, -62.5, 59, -62.5, 59, -67.5, 90, -67.5)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

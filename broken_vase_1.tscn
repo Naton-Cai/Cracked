@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmo56n8r6774t"]
+[gd_scene load_steps=11 format=3 uid="uid://cmo56n8r6774t"]
 
+[ext_resource type="Script" path="res://Scripts/broken_vase.gd" id="1_2yjw4"]
 [ext_resource type="Script" path="res://Scripts/broke_vase.gd" id="1_02444"]
 [ext_resource type="Texture2D" uid="uid://vmfleiqw14t2" path="res://Assets/Broke Vase 1/Vase1.png" id="2_xktqb"]
 [ext_resource type="Texture2D" uid="uid://csl8st8aokmuv" path="res://Assets/Broke Vase 1/Vase2.png" id="3_rkksv"]
@@ -12,6 +13,7 @@
 
 [node name="Broken Vase 1" type="Node2D"]
 scale = Vector2(0.2, 0.2)
+script = ExtResource("1_2yjw4")
 
 [node name="Vase1" type="RigidBody2D" parent="."]
 position = Vector2(-15, -45)
