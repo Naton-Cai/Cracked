@@ -57,4 +57,6 @@ func addpointsP1(points):
 	
 func addpointsP2(points):
 	player2Points += points
+	
+
 

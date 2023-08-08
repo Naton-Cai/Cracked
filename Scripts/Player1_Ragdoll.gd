@@ -1,6 +1,10 @@
 extends RigidBody2D
 var gem = preload("res://Gem.tscn")
 var vase = preload("res://broken_vase_1.tscn")
+var sfx = preload("res://audio.tscn")
+var audio_break = preload("res://SFX/vase_break.wav")
+var audio_collide = preload("res://SFX/collide.wav")
+var audio_jump = preload("res://SFX/Jump.wav")
 var stun = 5.0
 var timer
 var collided = false
@@ -33,11 +37,12 @@ func _physics_process(_delta):
 				if collided == false:
 					get_parent().player1STAMINA = min(2*get_parent().player1STAMINA, 3000.0)
 			else:
-				stun = timer.time_left - 0.2
+				stun = timer.time_left - 0.1
 				timer.set_wait_time(stun)
 				timer.start()	
 			
 func _on_body_entered(node):
+	
 	if collided == false:
 		collided = true
 	
@@ -54,8 +59,14 @@ func _on_body_entered(node):
 				gem_object.linear_velocity =  Vector2(randf_range(250, -250),-900)
 				gem_object.angular_velocity =  4
 				get_parent().add_child(gem_object)
-				self.queue_free()	
-				
+
+			#spanws the audio for the vase breaking
+			var vase_break = sfx.instantiate() as AudioStreamPlayer2D
+			var audio = audio_break
+			vase_break.stream = audio
+			vase_break.global_position = self.global_position
+			get_parent().add_sibling(vase_break)	
+						
 			#generates the broke vase pieces
 			var vase_object = vase.instantiate() 
 			vase_object.position = self.global_position
@@ -63,10 +74,24 @@ func _on_body_entered(node):
 			vase_object.request_ready()
 			get_parent().add_child(vase_object)
 			get_parent().respawnP1()
-	
+			
+			self.queue_free()
+			
+
+	var vase_collide = sfx.instantiate() as AudioStreamPlayer2D
+	var audio = audio_collide
+	vase_collide.stream = audio
+	vase_collide.global_position = self.global_position
+	get_parent().add_sibling(vase_collide)	
+		
 		
 
 func _on_timeout():
-	print("TIME")
+	var vase_jump = sfx.instantiate() as AudioStreamPlayer2D
+	var audio = audio_jump
+	vase_jump.stream = audio
+	vase_jump.global_position = self.global_position
+	
+	get_parent().add_sibling(vase_jump)	
 	get_parent().spawnP1(self.global_position + Vector2(0,-50))
 	self.queue_free()

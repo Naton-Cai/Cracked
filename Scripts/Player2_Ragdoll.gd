@@ -1,12 +1,16 @@
 extends RigidBody2D
 var gem = preload("res://Gem.tscn")
 var vase = preload("res://broken_vase_2.tscn")
+var sfx = preload("res://audio.tscn")
+var audio_break = preload("res://SFX/vase_break.wav")
+var audio_collide = preload("res://SFX/collide.wav")
+var audio_jump = preload("res://SFX/Jump.wav")
 var stun = 5.0
 var timer
 var collided = false
 var start_distance = Vector2(0,0)
+
 func _init():
-	print("INIT")
 	self.contact_monitor = true
 	self.max_contacts_reported = 1
 	stun = 2.0
@@ -15,6 +19,7 @@ func _init():
 func _ready():
 	self.body_entered.connect(self._on_body_entered)
 	start_distance = self.global_position
+	
 	timer = get_node("Timer")
 	timer.timeout.connect(self._on_timeout)
 	timer.set_wait_time(stun)
@@ -31,7 +36,7 @@ func _physics_process(_delta):
 				if collided == false:
 					get_parent().player2STAMINA = min(2*get_parent().player2STAMINA, 3000.0)
 			else:
-				stun = timer.time_left - 0.2
+				stun = timer.time_left - 0.1
 				timer.set_wait_time(stun)
 				timer.start()	
 		
@@ -52,7 +57,13 @@ func _on_body_entered(node):
 				gem_object.linear_velocity =  Vector2(randf_range(250, -250),-900)
 				gem_object.angular_velocity =  4
 				get_parent().add_child(gem_object)
-				self.queue_free()
+
+			#spanws the audio for the vase breaking
+			var vase_break = sfx.instantiate() as AudioStreamPlayer2D
+			var audio = audio_break
+			vase_break.stream = audio
+			vase_break.global_position = self.global_position
+			get_parent().add_sibling(vase_break)
 				
 			#generates the broke vase pieces
 			var vase_object = vase.instantiate() 
@@ -60,13 +71,24 @@ func _on_body_entered(node):
 			vase_object.rotation = self.rotation
 			vase_object.request_ready()
 			get_parent().add_child(vase_object)	
-				
 			get_parent().respawnP2()
+			
+			self.queue_free()
 
 
-		
+	var vase_collide = sfx.instantiate() as AudioStreamPlayer2D
+	var audio = audio_collide
+	vase_collide.stream = audio
+	vase_collide.global_position = self.global_position
+	get_parent().add_sibling(vase_collide)	
 
 func _on_timeout():
+	var vase_jump = sfx.instantiate() as AudioStreamPlayer2D
+	var audio = audio_jump
+	vase_jump.stream = audio
+	vase_jump.global_position = self.global_position
+	get_parent().add_sibling(vase_jump)	
+
 	print("TIME")
 	get_parent().spawnP2(self.global_position + Vector2(0,-50))
 	self.queue_free()
