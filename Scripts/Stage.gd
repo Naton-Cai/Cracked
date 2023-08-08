@@ -10,8 +10,8 @@ var player2Points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawnP1(Vector2(460, 200))
-	spawnP2(Vector2(1460, 200))
+	spawnP1(Vector2(460, 200), 1)
+	spawnP2(Vector2(1460, 200), -1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
@@ -30,25 +30,27 @@ func P2Damage(damage):
 
 func respawnP1():
 	player1HP = 20
-	spawnP1(Vector2(460, 200))
+	spawnP1(Vector2(460, 200), 1)
 	player1STAMINA = 700.0
 
 func respawnP2():
 	player2HP = 20
-	spawnP2(Vector2(1460, 200))
+	spawnP2(Vector2(1460, 200), -1)
 	player2STAMINA = 700.0
 
 #spawns player 1 into position
-func spawnP1(position):
+func spawnP1(position, direction):
 	var player_1 = player1.instantiate()
 	player_1.position = position  
+	player_1.direction = direction
 	player_1.set_physics_process(true)
 	self.add_child(player_1)
 	
 #spawns player 2 into position
-func spawnP2(position):
+func spawnP2(position, direction):
 	var player_2 = player2.instantiate()
-	player_2.position = position  
+	player_2.position = position 
+	player_2.direction = direction 
 	player_2.set_physics_process(true)
 	self.add_child(player_2)
 	

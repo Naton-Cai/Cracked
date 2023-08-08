@@ -6,4 +6,3 @@ func _ready():
 	self.play()
 	await self.finished
 	self.queue_free()
-

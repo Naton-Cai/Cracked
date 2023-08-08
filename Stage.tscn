@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=4 format=3 uid="uid://b6nnl45g3b8mh"]
 
 [ext_resource type="Script" path="res://Scripts/Stage.gd" id="1_pyivf"]
-[ext_resource type="PackedScene" uid="uid://b2xeoudfo4xub" path="res://Gem.tscn" id="2_pxa4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
 size = Vector2(3125, 105.875)
@@ -33,6 +32,3 @@ shape = SubResource("RectangleShape2D_nnub7")
 position = Vector2(1951, 571)
 scale = Vector2(4.28, 1)
 shape = SubResource("RectangleShape2D_nnub7")
-
-[node name="Gem" parent="." instance=ExtResource("2_pxa4x")]
-position = Vector2(706, 661)

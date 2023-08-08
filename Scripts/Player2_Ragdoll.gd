@@ -75,7 +75,6 @@ func _on_body_entered(node):
 			
 			self.queue_free()
 
-
 	var vase_collide = sfx.instantiate() as AudioStreamPlayer2D
 	var audio = audio_collide
 	vase_collide.stream = audio
@@ -89,6 +88,11 @@ func _on_timeout():
 	vase_jump.global_position = self.global_position
 	get_parent().add_sibling(vase_jump)	
 
-	print("TIME")
-	get_parent().spawnP2(self.global_position + Vector2(0,-50))
+	var direction
+	if self.rotation == 0.0:
+		direction = -1
+	else:
+		direction = -self.rotation/abs(self.rotation)
+	get_parent().spawnP2(self.global_position + Vector2(0,-50), direction)
+	print(self.rotation)
 	self.queue_free()
