@@ -47,5 +47,5 @@ func _on_timeout():
 	else:
 		direction = self.rotation/abs(self.rotation)
 	get_parent().isgrabbed = false
-	get_parent().get_parent().spawnP1(self.global_position + Vector2(0,-50), direction)
+	get_parent().get_parent().spawnP1(self.global_position + Vector2(0,-100), direction)
 	self.queue_free()
