@@ -9,10 +9,10 @@ extends CharacterBody2D
 
 var fast_fall : bool = false
 var doublejump : bool = false
+var spawn
 var isgrabbed = false
 var p_1 = preload("res://Player_1_grabbed.tscn")
 var p_1_ragdoll = preload("res://Player_1_ragdoll.tscn")
-var spawn = p_1.instantiate() 
 
 var sfx = preload("res://audio.tscn")
 var audio_jump = preload("res://SFX/Jump.wav")
@@ -104,6 +104,7 @@ func _physics_process(delta):
 
 #spawns grabbed sprite of opposing player
 func spawn_grabbed():
+	spawn = p_1.instantiate() 
 	spawn.position = Vector2(0,-50)  
 	add_child(spawn)
 	isgrabbed = true

@@ -13,13 +13,16 @@ var isgrabbed : bool = false
 
 var p_2 = preload("res://Player_2_grabbed.tscn")
 var p_2_ragdoll = preload("res://Player_2_ragdoll.tscn")
-var spawn = p_2.instantiate() 
+var spawn
 
 var sfx = preload("res://audio.tscn")
 var audio_jump = preload("res://SFX/Jump.wav")
 var audio_throw = preload("res://SFX/throw.wav")
 var audio_grab = preload("res://SFX/grab.wav")
 
+func _ready():
+	get_node( "Sprite2D").scale.x = size  * direction
+	get_node("Hitbox").scale.x = direction
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -102,6 +105,7 @@ func _physics_process(delta):
 
 #spawns grabbed sprite of opposing player
 func spawn_grabbed():
+	spawn = p_2.instantiate()
 	spawn.position = Vector2(0,-50)  
 	add_child(spawn)
 	isgrabbed = true

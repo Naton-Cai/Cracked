@@ -70,7 +70,7 @@ func _on_body_entered(node):
 			vase_object.position = self.global_position
 			vase_object.rotation = self.rotation
 			vase_object.request_ready()
-			get_parent().add_child(vase_object)	
+			get_parent().add_sibling(vase_object)	
 			get_parent().respawnP2()
 			
 			self.queue_free()
@@ -90,9 +90,8 @@ func _on_timeout():
 
 	var direction
 	if self.rotation == 0.0:
-		direction = -1
+		direction = 1
 	else:
-		direction = -self.rotation/abs(self.rotation)
+		direction = self.rotation/abs(self.rotation)
 	get_parent().spawnP2(self.global_position + Vector2(0,-50), direction)
-	print(self.rotation)
 	self.queue_free()

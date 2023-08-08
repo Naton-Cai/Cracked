@@ -91,12 +91,12 @@ func _on_timeout():
 	var audio = audio_jump
 	vase_jump.stream = audio
 	vase_jump.global_position = self.global_position
+	get_parent().add_sibling(vase_jump)
 	
 	var direction
 	if self.rotation == 0.0:
 		direction = 1
 	else:
-		direction = self.rotation/abs(self.rotation)
-	get_parent().add_sibling(vase_jump)	
+		direction = self.rotation/abs(self.rotation)	
 	get_parent().spawnP1(self.global_position + Vector2(0,-50), direction)
 	self.queue_free()
