@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://n2y7nkl68lnt"]
+[gd_scene load_steps=10 format=3 uid="uid://n2y7nkl68lnt"]
 
 [ext_resource type="Script" path="res://Scripts/Player1.gd" id="1_4gjkv"]
-[ext_resource type="Texture2D" uid="uid://cnd8bd5o0jp0w" path="res://Assets/Vase1.png" id="1_6oajw"]
+[ext_resource type="Texture2D" uid="uid://dr250s2lq5f23" path="res://Assets/Idle Animation Sprite Sheet/Idle Animation-Sheet.png" id="2_8x2l6"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="3_nku5o"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="4_xfm75"]
 
@@ -75,11 +75,41 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_4y37i"]
+resource_name = "idle"
+length = 3.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 4, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7px1e"]
 _data = {
 "Grab": SubResource("Animation_hack6"),
-"RESET": SubResource("Animation_8qg2x")
+"RESET": SubResource("Animation_8qg2x"),
+"idle": SubResource("Animation_4y37i")
 }
 
 [node name="PLayer1" type="CharacterBody2D"]
@@ -89,7 +119,9 @@ script = ExtResource("1_4gjkv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_6oajw")
+texture = ExtResource("2_8x2l6")
+hframes = 17
+frame = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 scale = Vector2(4, 3.5)
