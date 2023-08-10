@@ -22,6 +22,7 @@ var audio_grab = preload("res://SFX/grab.wav")
 func _ready():
 	get_node( "Sprite2D").scale.x = size  * direction
 	get_node("Hitbox").scale.x = direction
+	$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
 	if not is_on_floor():
