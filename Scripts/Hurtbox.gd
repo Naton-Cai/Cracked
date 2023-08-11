@@ -15,7 +15,7 @@ func _on_area_entered(hitbox) -> void:
 		return
 	
 	if hitbox.name == "Gem":
-		get_parent().addpoints(5)
+		get_parent().addpoints(1)
 	if hitbox.name == "Hitbox":
 		if get_parent().grab_animation == false:
 			get_parent().queue_free()
