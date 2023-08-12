@@ -13,7 +13,7 @@
 size = Vector2(3125, 58.9688)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnub7"]
-size = Vector2(20, 1128.5)
+size = Vector2(423, 1124.25)
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_pyivf")
@@ -38,24 +38,24 @@ position = Vector2(902, -50)
 shape = SubResource("RectangleShape2D_0f4u3")
 
 [node name="Rwall" type="CollisionShape2D" parent="Body"]
-position = Vector2(-3, 542)
+position = Vector2(-204.5, 544.125)
 shape = SubResource("RectangleShape2D_nnub7")
 
 [node name="ColorRect" type="ColorRect" parent="Body/Rwall"]
-offset_left = -14.0
-offset_top = -622.0
-offset_right = 9.345
-offset_bottom = 1278.0
+offset_left = 183.5
+offset_top = -634.125
+offset_right = 206.845
+offset_bottom = 1265.88
 color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [node name="Lwall" type="CollisionShape2D" parent="Body"]
-position = Vector2(1924, 568)
+position = Vector2(2130, 525)
 shape = SubResource("RectangleShape2D_nnub7")
 
 [node name="ColorRect2" type="ColorRect" parent="Body/Lwall"]
-offset_left = -9.0
+offset_left = -208.0
 offset_top = -620.0
-offset_right = 14.345
+offset_right = -184.655
 offset_bottom = 1280.0
 color = Color(0.141176, 0.141176, 0.141176, 1)
 
