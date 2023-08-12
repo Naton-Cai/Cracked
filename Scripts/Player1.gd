@@ -23,7 +23,6 @@ var audio_grab = preload("res://SFX/grab.wav")
 func _ready():
 	get_node( "Sprite2D").scale.x = size  * direction
 	get_node("Hitbox").scale.x = direction
-	$AnimationPlayer.play("idle")
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -35,6 +34,7 @@ func _physics_process(delta):
 	
 		if grab_animation == false:
 			velocity.x = 0
+			$AnimationPlayer.play("idle")
 			
 	#we don't want the player to move during the grab animation 
 	#so the script only reads inputs when not doing the grab animation

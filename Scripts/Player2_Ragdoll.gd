@@ -74,7 +74,7 @@ func _on_body_entered(node):
 			get_parent().respawnP2()
 			
 			self.queue_free()
-
+	
 	var vase_collide = sfx.instantiate() as AudioStreamPlayer2D
 	var audio = audio_collide
 	vase_collide.stream = audio

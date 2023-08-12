@@ -1,12 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=11 format=3 uid="uid://b6nnl45g3b8mh"]
 
 [ext_resource type="Script" path="res://Scripts/Stage.gd" id="1_pyivf"]
 [ext_resource type="Script" path="res://Scripts/Timewatch.gd" id="2_d54vp"]
-[ext_resource type="Texture2D" uid="uid://cg6mg023s7s0h" path="res://Assets/UI Assets/F1 UI Asset.png" id="3_vwdwt"]
-[ext_resource type="Texture2D" uid="uid://dumwjekdr5gml" path="res://Assets/UI Assets/F2 UI Asset Reversed.png" id="4_mo7sx"]
+[ext_resource type="FontFile" uid="uid://cacufwcmxolw7" path="res://Assets/PressStart2P-Regular.ttf" id="2_kjs31"]
+[ext_resource type="Texture2D" uid="uid://beewlswu5t13v" path="res://Assets/UI Assets/F1 UI Asset 2.png" id="4_xlkje"]
+[ext_resource type="Texture2D" uid="uid://rebvev577dk1" path="res://Assets/UI Assets/F2 UI Asset 2.png" id="5_m5q3j"]
+[ext_resource type="Theme" uid="uid://bv1e33bg3vcob" path="res://Assets/UI Assets/HP.tres" id="6_34ba7"]
+[ext_resource type="Script" path="res://HPbar.gd" id="6_p4arx"]
+[ext_resource type="Script" path="res://UI.gd" id="8_1yb10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
-size = Vector2(3125, 105.875)
+size = Vector2(3125, 58.9688)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnub7"]
 size = Vector2(20, 1128.5)
@@ -19,29 +23,56 @@ collision_layer = 259
 collision_mask = 259
 
 [node name="Floor" type="CollisionShape2D" parent="Body"]
-position = Vector2(1427, 1040)
+position = Vector2(1427, 831)
 shape = SubResource("RectangleShape2D_0f4u3")
+
+[node name="ColorRect" type="ColorRect" parent="Body/Floor"]
+offset_left = -1564.0
+offset_top = -28.0
+offset_right = 936.0
+offset_bottom = 22.0
+color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [node name="Ceiling" type="CollisionShape2D" parent="Body"]
 position = Vector2(902, -50)
 shape = SubResource("RectangleShape2D_0f4u3")
 
 [node name="Rwall" type="CollisionShape2D" parent="Body"]
-position = Vector2(-49, 542)
-scale = Vector2(-6.05768, 0.974276)
+position = Vector2(-3, 542)
 shape = SubResource("RectangleShape2D_nnub7")
 
+[node name="ColorRect" type="ColorRect" parent="Body/Rwall"]
+offset_left = -14.0
+offset_top = -622.0
+offset_right = 9.345
+offset_bottom = 1278.0
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
 [node name="Lwall" type="CollisionShape2D" parent="Body"]
-position = Vector2(1951, 571)
-scale = Vector2(4.28, 1)
+position = Vector2(1924, 568)
 shape = SubResource("RectangleShape2D_nnub7")
+
+[node name="ColorRect2" type="ColorRect" parent="Body/Lwall"]
+offset_left = -9.0
+offset_top = -620.0
+offset_right = 14.345
+offset_bottom = 1280.0
+color = Color(0.141176, 0.141176, 0.141176, 1)
 
 [node name="Timewatch" type="Label" parent="."]
 offset_left = 7.0
-offset_top = 6.0
+offset_top = 900.0
 offset_right = 1907.0
-offset_bottom = 136.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 20
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 90
+text = "TEMP"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_d54vp")
@@ -50,28 +81,67 @@ script = ExtResource("2_d54vp")
 one_shot = true
 autostart = true
 
-[node name="Point1" type="Label" parent="."]
-offset_left = 3.0
-offset_top = 4.0
-offset_right = 1903.0
-offset_bottom = 134.0
-theme_override_font_sizes/font_size = 50
+[node name="P1UI" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(460, 900)
+scale = Vector2(0.369, 0.369)
+texture = ExtResource("4_xlkje")
+script = ExtResource("8_1yb10")
+
+[node name="Point1" type="Label" parent="P1UI"]
+offset_left = 89.4309
+offset_top = 86.7209
+offset_right = 233.471
+offset_bottom = 170.411
+theme_override_colors/font_color = Color(0.54902, 0.847059, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kjs31")
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Point1"]
-position = Vector2(483, 116)
-scale = Vector2(0.369, 0.369)
-texture = ExtResource("3_vwdwt")
+[node name="P1hpbar" type="ProgressBar" parent="P1UI"]
+z_index = -2
+offset_left = 89.4307
+offset_top = -18.252
+offset_right = 386.701
+offset_bottom = 35.668
+theme = ExtResource("6_34ba7")
+max_value = 30.0
+show_percentage = false
+script = ExtResource("6_p4arx")
 
-[node name="Point2" type="Label" parent="."]
-offset_top = 4.0
-offset_right = 1900.0
-offset_bottom = 134.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 2
+[node name="P2UI" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1460, 900)
+scale = Vector2(0.369, 0.369)
+texture = ExtResource("5_m5q3j")
+script = ExtResource("8_1yb10")
+
+[node name="Point2" type="Label" parent="P2UI"]
+offset_left = -295.393
+offset_top = 86.7209
+offset_right = -151.353
+offset_bottom = 170.411
+theme_override_colors/font_color = Color(0.54902, 0.847059, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kjs31")
+theme_override_font_sizes/font_size = 60
+text = "0
+"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Point2"]
-position = Vector2(1454, 129)
-scale = Vector2(0.369, 0.369)
-texture = ExtResource("4_mo7sx")
+[node name="P2hpbar2" type="ProgressBar" parent="P2UI"]
+z_index = -2
+offset_left = -151.761
+offset_top = -18.252
+offset_right = 145.509
+offset_bottom = 35.668
+scale = Vector2(-1, 1)
+theme = ExtResource("6_34ba7")
+max_value = 30.0
+show_percentage = false
+script = ExtResource("6_p4arx")

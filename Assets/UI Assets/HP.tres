@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bv1e33bg3vcob"]
+
+[ext_resource type="Texture2D" uid="uid://c1yreq8fshf5c" path="res://Assets/UI Assets/health.png" id="1_a2xf1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbrbu"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ks7x"]
+texture = ExtResource("1_a2xf1")
+
+[resource]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_rbrbu")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_6ks7x")
