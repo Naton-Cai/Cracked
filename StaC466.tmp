@@ -179,14 +179,13 @@ transparent = true
 
 [node name="Camera2D" type="Camera2D" parent="TutorialScreen"]
 
-[node name="TutorialSprite" type="Sprite2D" parent="TutorialScreen"]
+[node name="Sprite2D" type="Sprite2D" parent="TutorialScreen"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("9_e47kl")
 hframes = 6
-frame = 1
 script = ExtResource("10_t4mhc")
 
-[node name="P1E Dialog" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1E Dialog" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -375.0
 offset_top = 30.0
 offset_right = 125.001
@@ -196,7 +195,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Grab/Throw"
 
-[node name="P2I Mash" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2I Mash" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 175.0
 offset_top = 250.0
 offset_right = 675.001
@@ -207,7 +206,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mash To
 Break Grab"
 
-[node name="P2K FF" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2K FF" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 175.0
 offset_top = 390.0
 offset_right = 675.001
@@ -218,7 +217,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hold To 
 Fast Fall"
 
-[node name="P1W Mash" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1W Mash" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -375.0
 offset_top = 250.0
 offset_right = 125.001
@@ -229,7 +228,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mash To
 Break Grab"
 
-[node name="P1S FF" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1S FF" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -375.0
 offset_top = 390.0
 offset_right = 125.001
@@ -240,7 +239,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hold To 
 Fast Fall"
 
-[node name="P1WASD" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1WASD" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -400.0
 offset_top = -150.0
 offset_right = 100.001
@@ -250,7 +249,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Movement"
 
-[node name="P2WASD" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2WASD" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 150.0
 offset_top = -150.0
 offset_right = 650.001
@@ -260,7 +259,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Movement"
 
-[node name="P2U Dialog" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2U Dialog" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 175.0
 offset_top = 30.0
 offset_right = 525.0
@@ -270,7 +269,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Grab/Throw"
 
-[node name="TutorialAnimation" type="AnimationPlayer" parent="TutorialScreen/TutorialSprite"]
+[node name="TutorialAnimation" type="AnimationPlayer" parent="TutorialScreen/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_moqxg")
 }

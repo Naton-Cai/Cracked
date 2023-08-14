@@ -21,6 +21,9 @@ var P2HPBAR
 var P1UI
 var P2UI
 
+var TutorialScreen
+var TutorialAnimation
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	P1score = self.get_node("P1UI/Point1")
@@ -29,6 +32,7 @@ func _ready():
 	P2HPBAR = self.get_node("P2UI/P2hpbar2")
 	P1UI = self.get_node("P1UI")
 	P2UI = self.get_node("P2UI")
+	TutorialScreen = self.get_node("TutorialScreen")
 	spawnP1(Vector2(460, 200), 1)
 	spawnP2(Vector2(1460, 200), -1)
 	P1HPBAR.set_health(30, 30)
@@ -37,6 +41,9 @@ func _ready():
 	P2score.text = str(player2Points)
 	timer = get_node("Timer")
 	timer.timeout.connect(self._on_timeout)
+	TutorialScreen.show()
+	get_tree().paused = true
+	
 	
 #calculates damage for player 1
 func P1Damage(damage):
@@ -107,3 +114,8 @@ func _on_timeout():
 	self.add_sibling(victory)
 	print("GAME IS OVER")
 
+
+
+func _on_tutorial_screen_close_requested():
+	TutorialScreen.hide()
+	get_tree().paused = false

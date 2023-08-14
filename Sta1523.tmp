@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=14 format=3 uid="uid://b6nnl45g3b8mh"]
 
 [ext_resource type="Script" path="res://Scripts/Stage.gd" id="1_pyivf"]
 [ext_resource type="Script" path="res://Scripts/Timewatch.gd" id="2_d54vp"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://HPbar.gd" id="6_p4arx"]
 [ext_resource type="Script" path="res://UI.gd" id="8_1yb10"]
 [ext_resource type="Texture2D" uid="uid://sfhuxcgvrc5q" path="res://Assets/Tutorial Assets/Tutorial Background-Sheet.png" id="9_e47kl"]
-[ext_resource type="Script" path="res://Sprite2D.gd" id="10_t4mhc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
 size = Vector2(3125, 58.9688)
@@ -179,14 +178,12 @@ transparent = true
 
 [node name="Camera2D" type="Camera2D" parent="TutorialScreen"]
 
-[node name="TutorialSprite" type="Sprite2D" parent="TutorialScreen"]
+[node name="Sprite2D" type="Sprite2D" parent="TutorialScreen"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("9_e47kl")
 hframes = 6
-frame = 1
-script = ExtResource("10_t4mhc")
 
-[node name="P1E Dialog" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1E Dialog" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -375.0
 offset_top = 30.0
 offset_right = 125.001
@@ -196,7 +193,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Grab/Throw"
 
-[node name="P2I Mash" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2I Mash" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 175.0
 offset_top = 250.0
 offset_right = 675.001
@@ -207,7 +204,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mash To
 Break Grab"
 
-[node name="P2K FF" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2K FF" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 175.0
 offset_top = 390.0
 offset_right = 675.001
@@ -218,7 +215,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hold To 
 Fast Fall"
 
-[node name="P1W Mash" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1W Mash" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -375.0
 offset_top = 250.0
 offset_right = 125.001
@@ -229,7 +226,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mash To
 Break Grab"
 
-[node name="P1S FF" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1S FF" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -375.0
 offset_top = 390.0
 offset_right = 125.001
@@ -240,7 +237,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hold To 
 Fast Fall"
 
-[node name="P1WASD" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P1WASD" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = -400.0
 offset_top = -150.0
 offset_right = 100.001
@@ -250,7 +247,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Movement"
 
-[node name="P2WASD" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2WASD" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 150.0
 offset_top = -150.0
 offset_right = 650.001
@@ -260,7 +257,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Movement"
 
-[node name="P2U Dialog" type="Label" parent="TutorialScreen/TutorialSprite"]
+[node name="P2U Dialog" type="Label" parent="TutorialScreen/Sprite2D"]
 offset_left = 175.0
 offset_top = 30.0
 offset_right = 525.0
@@ -270,7 +267,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Grab/Throw"
 
-[node name="TutorialAnimation" type="AnimationPlayer" parent="TutorialScreen/TutorialSprite"]
+[node name="TutorialAnimation" type="AnimationPlayer" parent="TutorialScreen/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_moqxg")
 }
