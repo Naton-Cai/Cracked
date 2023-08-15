@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://b015520a8kana"]
 
 [ext_resource type="Texture2D" uid="uid://c0bht8o7elpqv" path="res://Assets/Vase2.png" id="1_x7ly7"]
-[ext_resource type="Script" path="res://Player_2_grabbed.gd" id="2_hojng"]
+[ext_resource type="Script" path="res://Scripts/Player_2_grabbed.gd" id="2_m2xx8"]
 
 [node name="Player_2_Grabbed" type="Sprite2D"]
 z_index = 4
 rotation = -1.5708
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_x7ly7")
-script = ExtResource("2_hojng")
+script = ExtResource("2_m2xx8")
 
 [node name="Timer" type="Timer" parent="."]

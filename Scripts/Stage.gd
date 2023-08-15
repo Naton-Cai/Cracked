@@ -2,6 +2,8 @@ extends Node2D
 var player2 = preload("res://Player2.tscn")
 var player1 = preload("res://Player1.tscn")
 var victory_screen = preload("res://victory.tscn")
+var sfx = preload("res://SFX/button_sound.wav")
+var audio = preload("res://audio.tscn")
 
 var player1HP = 30
 var player2HP = 30
@@ -125,4 +127,8 @@ func _on_tutorial_screen_close_requested():
 
 
 func _on_texture_button_pressed():
+	var button_press = audio.instantiate() as AudioStreamPlayer2D
+	button_press.stream = sfx
+	button_press.global_position = self.global_position
+	self.add_sibling(button_press)	
 	_on_tutorial_screen_close_requested()

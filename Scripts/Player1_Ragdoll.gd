@@ -5,6 +5,7 @@ var sfx = preload("res://audio.tscn")
 var audio_break = preload("res://SFX/vase_break.wav")
 var audio_collide = preload("res://SFX/collide.wav")
 var audio_jump = preload("res://SFX/Jump.wav")
+var audio_resist = preload("res://SFX/resist.wav")
 var stun = 5.0
 var timer
 var collided = false
@@ -31,6 +32,12 @@ func _physics_process(_delta):
 	#and potential not hit the wall at the cost of stamina
 	if get_parent().player1HP > 0 and get_parent().has_method("spawnP1") and get_parent().has_method("P1Damage"):
 		if  Input.is_action_just_pressed("P1U"):
+			var vase_resist = sfx.instantiate() as AudioStreamPlayer2D
+			var audio = audio_resist
+			vase_resist.stream = audio
+			vase_resist.global_position = self.global_position
+			get_parent().add_sibling(vase_resist)
+			
 			if timer.time_left - 1.0 <= 0.0:
 				timer.stop()
 				timer.emit_signal("timeout")
