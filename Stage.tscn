@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6nnl45g3b8mh"]
+[gd_scene load_steps=19 format=3 uid="uid://b6nnl45g3b8mh"]
 
 [ext_resource type="Script" path="res://Scripts/Stage.gd" id="1_pyivf"]
 [ext_resource type="Script" path="res://Scripts/Timewatch.gd" id="2_d54vp"]
@@ -10,6 +10,10 @@
 [ext_resource type="Script" path="res://UI.gd" id="8_1yb10"]
 [ext_resource type="Texture2D" uid="uid://sfhuxcgvrc5q" path="res://Assets/Tutorial Assets/Tutorial Background-Sheet.png" id="9_e47kl"]
 [ext_resource type="Script" path="res://Sprite2D.gd" id="10_t4mhc"]
+[ext_resource type="Texture2D" uid="uid://cnxyljqow5udj" path="res://Assets/Tutorial Assets/Button Sprite.png" id="11_v73m2"]
+[ext_resource type="Texture2D" uid="uid://c2ra7yydsxvsq" path="res://Assets/Tutorial Assets/Button Sprite Pressed.png" id="12_26hly"]
+[ext_resource type="Texture2D" uid="uid://ckje7qgbhqvxh" path="res://Assets/Tutorial Assets/Button Sprite Hover.png" id="13_c41uk"]
+[ext_resource type="Script" path="res://TextureButton.gd" id="14_wbxyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4u3"]
 size = Vector2(3125, 58.9688)
@@ -170,26 +174,26 @@ max_value = 30.0
 show_percentage = false
 script = ExtResource("6_p4arx")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="TutorialWindow" type="Node2D" parent="."]
 process_mode = 2
 
-[node name="TutorialScreen" type="Window" parent="Node2D"]
+[node name="TutorialScreen" type="Window" parent="TutorialWindow"]
 transparent_bg = true
-initial_position = 1
-size = Vector2i(769, 706)
+initial_position = 2
+size = Vector2i(769, 1000)
 borderless = true
 transparent = true
 
-[node name="Camera2D" type="Camera2D" parent="Node2D/TutorialScreen"]
+[node name="Camera2D" type="Camera2D" parent="TutorialWindow/TutorialScreen"]
 
-[node name="TutorialSprite" type="Sprite2D" parent="Node2D/TutorialScreen"]
+[node name="TutorialSprite" type="Sprite2D" parent="TutorialWindow/TutorialScreen"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("9_e47kl")
 hframes = 6
 frame = 1
 script = ExtResource("10_t4mhc")
 
-[node name="P1E Dialog" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P1E Dialog" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = -375.0
 offset_top = 30.0
 offset_right = 125.001
@@ -199,7 +203,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Grab/Throw"
 
-[node name="P2I Mash" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P2I Mash" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = 175.0
 offset_top = 250.0
 offset_right = 675.001
@@ -210,7 +214,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mash To
 Break Grab"
 
-[node name="P2K FF" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P2K FF" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = 175.0
 offset_top = 390.0
 offset_right = 675.001
@@ -221,7 +225,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hold To 
 Fast Fall"
 
-[node name="P1W Mash" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P1W Mash" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = -375.0
 offset_top = 250.0
 offset_right = 125.001
@@ -232,7 +236,7 @@ theme_override_font_sizes/font_size = 35
 text = "Mash To
 Break Grab"
 
-[node name="P1S FF" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P1S FF" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = -375.0
 offset_top = 390.0
 offset_right = 125.001
@@ -243,7 +247,7 @@ theme_override_font_sizes/font_size = 35
 text = "Hold To 
 Fast Fall"
 
-[node name="P1WASD" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P1WASD" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = -400.0
 offset_top = -150.0
 offset_right = 100.001
@@ -253,7 +257,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Movement"
 
-[node name="P2WASD" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P2WASD" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = 150.0
 offset_top = -150.0
 offset_right = 650.001
@@ -263,7 +267,7 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Movement"
 
-[node name="P2U Dialog" type="Label" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="P2U Dialog" type="Label" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 offset_left = 175.0
 offset_top = 30.0
 offset_right = 525.0
@@ -273,9 +277,20 @@ theme_override_fonts/font = ExtResource("2_kjs31")
 theme_override_font_sizes/font_size = 35
 text = "Grab/Throw"
 
-[node name="TutorialAnimation" type="AnimationPlayer" parent="Node2D/TutorialScreen/TutorialSprite"]
+[node name="TutorialAnimation" type="AnimationPlayer" parent="TutorialWindow/TutorialScreen/TutorialSprite"]
 libraries = {
 "": SubResource("AnimationLibrary_moqxg")
 }
 
-[connection signal="close_requested" from="Node2D/TutorialScreen" to="." method="_on_tutorial_screen_close_requested"]
+[node name="TextureButton" type="TextureButton" parent="TutorialWindow/TutorialScreen"]
+offset_left = -105.0
+offset_top = 375.0
+offset_right = 126.0
+offset_bottom = 487.0
+texture_normal = ExtResource("11_v73m2")
+texture_pressed = ExtResource("12_26hly")
+texture_hover = ExtResource("13_c41uk")
+script = ExtResource("14_wbxyr")
+
+[connection signal="close_requested" from="TutorialWindow/TutorialScreen" to="." method="_on_tutorial_screen_close_requested"]
+[connection signal="pressed" from="TutorialWindow/TutorialScreen/TextureButton" to="." method="_on_texture_button_pressed"]

@@ -32,7 +32,7 @@ func _ready():
 	P2HPBAR = self.get_node("P2UI/P2hpbar2")
 	P1UI = self.get_node("P1UI")
 	P2UI = self.get_node("P2UI")
-	TutorialScreen = self.get_node("Node2D/TutorialScreen")
+	TutorialScreen = self.get_node("TutorialWindow/TutorialScreen")
 	spawnP1(Vector2(460, 200), 1)
 	spawnP2(Vector2(1460, 200), -1)
 	P1HPBAR.set_health(30, 30)
@@ -119,3 +119,7 @@ func _on_timeout():
 func _on_tutorial_screen_close_requested():
 	TutorialScreen.hide()
 	get_tree().paused = false
+
+
+func _on_texture_button_pressed():
+	_on_tutorial_screen_close_requested()
