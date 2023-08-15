@@ -32,7 +32,7 @@ func _ready():
 	P2HPBAR = self.get_node("P2UI/P2hpbar2")
 	P1UI = self.get_node("P1UI")
 	P2UI = self.get_node("P2UI")
-	TutorialScreen = self.get_node("TutorialScreen")
+	TutorialScreen = self.get_node("Node2D/TutorialScreen")
 	spawnP1(Vector2(460, 200), 1)
 	spawnP2(Vector2(1460, 200), -1)
 	P1HPBAR.set_health(30, 30)
