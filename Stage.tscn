@@ -292,5 +292,9 @@ texture_pressed = ExtResource("12_26hly")
 texture_hover = ExtResource("13_c41uk")
 script = ExtResource("14_wbxyr")
 
+[node name="Panel" type="Panel" parent="."]
+offset_right = 2000.0
+offset_bottom = 1500.0
+
 [connection signal="close_requested" from="TutorialWindow/TutorialScreen" to="." method="_on_tutorial_screen_close_requested"]
 [connection signal="pressed" from="TutorialWindow/TutorialScreen/TextureButton" to="." method="_on_texture_button_pressed"]

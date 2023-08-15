@@ -22,7 +22,7 @@ var P1UI
 var P2UI
 
 var TutorialScreen
-var TutorialAnimation
+var TutorialFade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,6 +33,7 @@ func _ready():
 	P1UI = self.get_node("P1UI")
 	P2UI = self.get_node("P2UI")
 	TutorialScreen = self.get_node("TutorialWindow/TutorialScreen")
+	TutorialFade = self.get_node("Panel")
 	spawnP1(Vector2(460, 200), 1)
 	spawnP2(Vector2(1460, 200), -1)
 	P1HPBAR.set_health(30, 30)
@@ -42,6 +43,7 @@ func _ready():
 	timer = get_node("Timer")
 	timer.timeout.connect(self._on_timeout)
 	TutorialScreen.show()
+	TutorialFade.show()
 	get_tree().paused = true
 	
 	
@@ -118,6 +120,7 @@ func _on_timeout():
 
 func _on_tutorial_screen_close_requested():
 	TutorialScreen.hide()
+	TutorialFade.hide()
 	get_tree().paused = false
 
 
