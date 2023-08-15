@@ -19,6 +19,6 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 30
 theme_override_fonts/font = ExtResource("1_dpdxj")
 theme_override_font_sizes/font_size = 140
-text = "TEMP"
+text = "Draw"
 horizontal_alignment = 1
 vertical_alignment = 1

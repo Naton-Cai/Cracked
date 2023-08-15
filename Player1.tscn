@@ -19,7 +19,7 @@ tracks/0/path = NodePath("Hitbox/Hit:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.333333),
+"times": PackedFloat32Array(0, 0.0833333, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -31,7 +31,7 @@ tracks/1/path = NodePath("Hitbox/Hit/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.333333),
+"times": PackedFloat32Array(0, 0.0833333, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
