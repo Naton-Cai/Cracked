@@ -183,10 +183,13 @@ process_mode = 2
 
 [node name="TutorialScreen" type="Window" parent="TutorialWindow"]
 transparent_bg = true
+mode = 3
 initial_position = 2
 size = Vector2i(1610, 990)
 borderless = true
 transparent = true
+content_scale_mode = 2
+content_scale_aspect = 1
 
 [node name="Camera2D" type="Camera2D" parent="TutorialWindow/TutorialScreen"]
 

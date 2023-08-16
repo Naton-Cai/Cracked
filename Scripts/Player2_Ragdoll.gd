@@ -38,15 +38,16 @@ func _physics_process(_delta):
 			vase_resist.global_position = self.global_position
 			get_parent().add_sibling(vase_resist)
 			
-			if timer.time_left - 1.0 <= 0.0:
-				timer.stop()
-				timer.emit_signal("timeout")
-				if collided == false:
-					get_parent().player2STAMINA = min(2*get_parent().player2STAMINA, 3000.0)
-			else:
-				stun = timer.time_left - 0.1
-				timer.set_wait_time(stun)
-				timer.start()	
+			if timer.is_stopped() == false:
+				if timer.time_left - 1.0 <= 0.0:
+					timer.stop()
+					timer.emit_signal("timeout")
+					if collided == false:
+						get_parent().player2STAMINA = min(2*get_parent().player2STAMINA, 3000.0)
+				else:
+					stun = timer.time_left - 0.1
+					timer.set_wait_time(stun)
+					timer.start()	
 		
 func _on_body_entered(node):
 	if collided == false:
@@ -58,8 +59,9 @@ func _on_body_entered(node):
 		get_parent().player2STAMINA = min(1.5*get_parent().player2STAMINA, 3000.0)
 		
 		if get_parent().P2Damage(damage) <= 0:
-			#generates 1-5 gems
-			for i in range(randi_range(1,5)):
+			timer.stop()
+			#generates 5 gems
+			for i in range(5):
 				var gem_object = gem.instantiate() 
 				gem_object.position = self.global_position
 				gem_object.linear_velocity =  Vector2(randf_range(250, -250),-900)

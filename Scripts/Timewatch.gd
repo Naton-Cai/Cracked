@@ -1,6 +1,6 @@
 extends Label
 var timer
-var timelimit = 120
+var timelimit = 240
 var time = 0
 var min = 0
 var sec = 0

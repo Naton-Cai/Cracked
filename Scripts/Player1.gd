@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var direction = 1
 @export var size = 0.2
 @export var grab_animation = false
+@export var can_move = true
 
 var fast_fall : bool = false
 var doublejump : bool = false
@@ -32,13 +33,13 @@ func _physics_process(delta):
 		fast_fall = false
 		doublejump = false
 	
-		if grab_animation == false:
+		if can_move == true:
 			velocity.x = 0
 			$AnimationPlayer.play("idle")
 			
 	#we don't want the player to move during the grab animation 
 	#so the script only reads inputs when not doing the grab animation
-	if grab_animation == false:
+	if can_move == true:
 		if Input.is_action_pressed("P1L"):
 			velocity.x = -move_speed
 			direction = -1
