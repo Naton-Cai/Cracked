@@ -15,3 +15,10 @@ Each player controls a vase, who's goal is to grab their opponent and throw them
 
 ## Notes from Naton Cai
 This was my first time using Godot and over all only my second time seriously developing in a game engine, so a lot of this was a learning experience. Thankfully Godot development was very intuitive for the most part. One of the things that was simply not possible given our timeframe was true online multiplayer. We knew from the very beginning that multiplayer was almost going to be impossible to implement so we settled on local same keyboard multiplayer. However, that did limit the options of controls for us. Had we had time to develop LAN or Online mutiplayer, I would have liked to have implmented the ability to aim with the mouse.
+
+## Unfinished Features
+* online multiplayer
+* Controller changes
+* Proper Stage
+* More animations
+* Tutorial page resolution scaling
